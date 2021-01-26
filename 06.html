@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Validar CPF e email</title>
+</head>
+<body>
+  
+  <form action="" id="form">
+
+    <label for="cpf">CPF</label>
+    <input type="text" name="cpf">
+
+    <label for="email">Email</label>
+    <input type="email" name="email">
+
+    <a href="#" onclick="validate()">Validar</a>
+
+  </form>
+
+  <script>
+
+    function validate(){
+
+      let form = document.getElementById('form');
+      let cpf = form.cpf.value;
+      let email = form.email.value;
+
+      let regexCPF = /^([\d]{3})([\d]{3})([\d]{3})([\d]{2})$/
+      let regexEmail = /^([\w-]+(\.[\w-]+)*)@(([\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(\.[a-z]{2})?)$/i;
+
+      if(regexCPF.test(cpf)){
+        cpf = cpf.replace(regexCPF,"$1.$2.$3-$4");
+        console.log(cpf)
+      } else{
+        alert("CPF deve ter apenas números");
+      }
+
+      if(!regexEmail.test(email)){
+        alert("Email inválido");
+      }
+
+    }
+
+  </script>
+
+</body>
+</html>

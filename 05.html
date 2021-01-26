@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    // i - ignora maiúsculas e minúsculas
+    // g - chama todas as referência que batem com o padrão
+    let regex = /Javascript/ig;
+    let string = "JavaScript";
+
+    console.log(regex.test(string));
+    console.log(regex.exec(string));
+
+    // encontra pontos dentro da string
+    console.log(/./.test("Pier"));
+
+    // Encontra qualquer tipo de caracter, menos numero
+    console.log(/\w/.test("Pier"));
+
+    // Encontra somente números que não estejam colados com letras
+    console.log(/\s/.test("Pier 21"));
+
+    // encontra números mesmo colados com letras
+    console.log(/\d/.test("Pier21"));
+
+    // Verdadeiro somente se a string começar com o valor
+    console.log(/^21/.test("Pier21"));
+
+    // verifica se a string termina com o valor definido
+    console.log(/21$/.test("Pier21"));
+
+    // Ocorrência de dígitos no final da string
+    console.log(/\d\d$/.test("Pier21"));
+
+    // Verificar CEP
+    console.log(/^\d\d\d\d\d\-\d\d\d/.test('12345-678'));
+
+    // 0 ou mais ocorrência de dígitos
+    console.log(/\d*/.test('oi'));
+
+    // uma ou mais ocorrência de dígitos
+    console.log(/\d+/.test('1oi'));
+
+    // quantidade personalizada de numeros
+    console.log(/\d{2}/.test('1oi2'));
+    
+    // forma simplificada de formatar o CEP
+    console.log(/^\d{5}-\d{3}$/.test('12345-789'));
+
+    // Avalia um email
+    console.log(/\w+@\w+\.\w{2,3}/.test('jgomes@softexpert.com'));
+    
+    // verifica se a letra é A ou E
+    console.log(/c[ae]u/.test('ceu'));
+
+    // verifica se é um digito ou uma vírgula
+    console.log(/\d*[\d\,]/.test('23,45'));
+
+    // Replace com Regex
+    console.log("Teste".replace(/T/g, "Testinho"));
+    
+    // Formatar um link com regex
+    let re = /(www.xti.com.br)\/(\w{2,})-(\d{4})\.html/;
+    let str = "www.xti.com.br/cliente-2011.html";
+    console.log(str.replace(re, 'http://$1/$3/$2.jsp'));
+
+  </script>
+
+</body>
+</html>
